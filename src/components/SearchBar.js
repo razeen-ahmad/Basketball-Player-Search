@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Input, Container, FormControl } from "@chakra-ui/react"
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ term, onTermChange, onSearch }) => {
 
-    const[searchTerm, setSearchTerm] = useState("");
 
     const onChange = (event) => {
         event.preventDefault();
@@ -11,7 +10,7 @@ const SearchBar = ({ onSearch }) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        onSearch(searchTerm);
+        onSearch(term);
     }
 
     return (
@@ -23,8 +22,8 @@ const SearchBar = ({ onSearch }) => {
                         placeholder="Search..." 
                         size="lg" 
                         variant="flushed" 
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        value={term}
+                        onChange={(e) => onTermChange(e.target.value)}
                     />
                 </FormControl>
             </form>

@@ -1,12 +1,12 @@
 import React from 'react';
-import GameCard from './GameCard';
+import PlayerCard from './PlayerCard';
 import { Box, Stack } from '@chakra-ui/react';
 
-const GameList = ({ games }) => {
-    const cards = games.map((item) => (
-        <GameCard 
+const PlayerList = ({ players }) => {
+    const cards = players.map((item) => (
+        <PlayerCard 
             key={item.id}
-            game={item}
+            player={item}
         />
     ));
     return(
@@ -16,4 +16,4 @@ const GameList = ({ games }) => {
     );       
 };
 
-export default GameList;
+export default PlayerList;

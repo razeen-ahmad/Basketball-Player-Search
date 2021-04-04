@@ -3,29 +3,38 @@ import balldontlie from '../api/balldontlie';
 
 const UseGames = () => {
     //state variables for data from api or error message
-    const [results, setResults] = useState([]);
+    const [games, setGames] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const searchGamesApi = async (season) => {
+    const getGames = async() => {
         try{
-            const response = await balldontlie.get('/games', {
-                params: {
-                    "seasons[]": season
-                }
-            });
-
-            console.log(response);
-            //setResults(response.data);
-        } catch(err) {
+            const response = await balldontlie.get('/games');
+            setErrorMessage('');
+            setGames(response.data.data);
+        } catch(err){
             setErrorMessage('Something Went Wrong');
         }
     };
 
     useEffect( () => {
-        searchGamesApi('2010');
+        getGames();
     }, []);
+
+    const searchGames = async season => {
+        if(season.length === 0){
+            getGames();
+        }
+        else {
+            const response = await balldontlie.get('/games', {
+                params: {
+                    "seasons[]": season
+                }
+            });
+            setGames(response.data.data);
+        }
+    };
     
-    return [searchGamesApi, results, errorMessage];
+    return [games, searchGames, errorMessage];
 };
 
 export default UseGames;

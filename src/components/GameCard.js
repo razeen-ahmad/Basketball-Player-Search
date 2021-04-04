@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-const GameCard = ({ key, hometeam, awayteam }) => {
+const GameCard = ({ game }) => {
     return(
         <Box bg="tomato" w="30%" p={4} color="navy">
-            {hometeam}
+            {game.home_team.full_name}
             vs. 
-            {awayteam}
+            {game.visitor_team.full_name}
         </Box>
 
 )};
