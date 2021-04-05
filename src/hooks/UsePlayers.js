@@ -5,36 +5,49 @@ const UsePlayers = () => {
     //state variables for data from api or error message
     const [players, setPlayers] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
+    const [ totalPages, setTotalPages ] = useState(0);
 
-    const getPlayers = async() => {
+    const getPlayers = async(num) => {
         try{
-            const response = await balldontlie.get('/players');
+            const response = await balldontlie.get('/players', {
+                params: {
+                    "per_page": 9,
+                    "page": num
+                }
+            });
             setPlayers(response.data.data);
+            setTotalPages(response.data.meta.total_pages);
         } catch(err){
             setErrorMessage('Something Went Wrong');
         }
     };
 
     useEffect( () => {
-        getPlayers();
+        getPlayers(0);
     }, []);
 
-    const searchPlayers = async name => {
+    const searchPlayers = async (name, num) => {
         if(name.length === 0){
-            getPlayers();
+            getPlayers(num);
         }
         else {
-            const response = await balldontlie.get('/players', {
-                params: {
-                    "search": name.toLowerCase()
-                }
-            });
-            console.log(response.data.data);
-            setPlayers(response.data.data);
+            try{
+                const response = await balldontlie.get('/players', {
+                    params: {
+                        "search": name.toLowerCase(),
+                        "per_page": 9,
+                        "page": num
+                    }
+                });
+                setPlayers(response.data.data);
+                setTotalPages(response.data.meta.total_pages);
+            } catch(err){
+                setErrorMessage("Something went wrong");
+            }
         }
     };
     
-    return [players, searchPlayers, errorMessage];
+    return [players, searchPlayers, errorMessage, totalPages];
 };
 
 export default UsePlayers;
