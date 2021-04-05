@@ -20,8 +20,8 @@ export default function Home() {
         </Box>
         <h1 className="title">
           Read{' '}
-          <Link href="/posts/first-post">
-            <a>My First Post</a>
+          <Link href="/player-search">
+            <a>Player Search</a>
           </Link>
         </h1>
 

@@ -12,7 +12,7 @@ const PlayerSearch = () => {
 
     return(
 
-        <Layout>
+        <>
             <Head>
                 <title>Player Search</title>
             </Head>
@@ -24,7 +24,7 @@ const PlayerSearch = () => {
             {/* render results from search bar */}
             {errorMessage ? <text>{errorMessage}</text> : null}
             <PlayerList players={players}/>
-        </Layout>
+        </>
 
     );
 

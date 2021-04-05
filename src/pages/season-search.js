@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/layout';
 import UseGames from '../hooks/UseGames';
 import SearchBar from '../components/SearchBar';
 import GameList from '../components/GameList';
-import CardList from '../components/CardList';
-import GameCard from '../components/GameCard';
+
 
 
 const SeasonSearch = () =>  {
