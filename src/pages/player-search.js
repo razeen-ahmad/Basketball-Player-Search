@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import UsePlayers from '../hooks/UsePlayers';
 import SearchBar from '../components/SearchBar';
 import PlayerList from '../components/PlayerList';
@@ -13,8 +13,7 @@ const PlayerSearch = () => {
     const [ players, searchPlayers, errorMessage, totalPages ] = UsePlayers();
 
     return(
-
-        <>
+        <Layout>
             <Head>
                 <title>Player Search</title>
             </Head>
@@ -53,7 +52,7 @@ const PlayerSearch = () => {
                     Next Page
                 </Button>
             </Stack>
-        </>
+        </Layout>
 
     );
 
