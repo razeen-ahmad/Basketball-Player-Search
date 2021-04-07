@@ -1,19 +1,25 @@
-import React from 'react';
-import { Box, Flex, Center } from '@chakra-ui/react';
+import React, { Components } from 'react';
+import { Box, Avatar, Stack, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+import NBALogo from './NBALogo';
 
 const PlayerCard = ({ player }) => {
+    const ThisLogo = `NBAIcons.${player.team.abbreviation.toLowerCase()}`;
     return(
-        <Box 
-            bg="tomato"
-            p="6" 
-            color="navy"
-        >
+        <Box borderRadius="lg" bg="brand.100">
             <Link href={`/players/${player.id}`}>
                 <a>
-                    <Box>
-                        {player.first_name} {player.last_name}
-                    </Box>  
+                    <Stack direction="row">
+                        <NBALogo thisTeam={player.team.abbreviation}/>
+                        <Box>
+                            <Heading paddingRight="0.1em">
+                            {player.first_name} {player.last_name}
+                            </Heading>
+                            <Text fontSize="lg">
+                                {player.position ? `${player.position} | ${player.team.full_name}` : `${player.team.full_name}`}
+                            </Text>
+                        </Box>  
+                    </Stack>
                 </a>
             </Link>
         </Box>

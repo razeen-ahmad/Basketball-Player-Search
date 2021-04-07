@@ -11,7 +11,7 @@ const UsePlayers = () => {
         try{
             const response = await balldontlie.get('/players', {
                 params: {
-                    "per_page": 9,
+                    "per_page": 8,
                     "page": num
                 }
             });
@@ -35,7 +35,7 @@ const UsePlayers = () => {
                 const response = await balldontlie.get('/players', {
                     params: {
                         "search": name.toLowerCase(),
-                        "per_page": 9,
+                        "per_page": 8,
                         "page": num
                     }
                 });

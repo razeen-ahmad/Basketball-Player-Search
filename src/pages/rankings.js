@@ -1,11 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
-import { connectToDatabase } from '../util/mongodb'
+import dbConnect from '../util/dbConnect';
+var PlayerClickCount = require('../../models/PlayerClickCount');
 
-const Rankings = ({ data }) => {
-    console.log(data);
+const Rankings = ({ rankData }) => {
     return(
+        //rankData contains data from database, in descending order
         <Layout>
             <Head>
                 <title>Player Search Rankings</title>
@@ -16,16 +17,18 @@ const Rankings = ({ data }) => {
 };
 
 export async function getServerSideProps(context) {
-    const { client } = await connectToDatabase();
+    dbConnect();
   
-    //manually get 'players' database
-    const db = await client.db('players');
-    const db_data = await db.collection("player_clicks").find({}).toArray();
+    //get player count data, sorted in descending order
+    const playerClickCounts = await PlayerClickCount.find({}).sort({"clicks": -1});
+    
   
     //turn all data from mongodb collection into plain string objects
-    const data = JSON.parse(JSON.stringify(db_data));
+    const rankData = JSON.parse(JSON.stringify(playerClickCounts));
   
     return {
-      props: { data },
+      props: { rankData },
     }
-  }
+  };
+
+  export default Rankings;

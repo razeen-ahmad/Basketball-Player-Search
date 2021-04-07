@@ -11,8 +11,9 @@ const PlayerList = ({ players }) => {
     ));
     return(
            <SimpleGrid
-                spacing="20px"
-                columns={[1, 2, 3]}
+                spacingX="4em"
+                spacingY="1.5em"
+                columns={[1, null, 2]}
                 padding="3em"
                 justifyContent="space-around"
             >

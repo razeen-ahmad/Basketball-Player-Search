@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import UsePlayers from '../hooks/UsePlayers';
 import SearchBar from '../components/SearchBar';
 import PlayerList from '../components/PlayerList';
-import { Stack, Button } from '@chakra-ui/react';
+import { Stack, Button, Text } from '@chakra-ui/react';
 
 const PlayerSearch = () => {
     const [ searchName, setSearchName ] = useState('');
@@ -32,7 +32,6 @@ const PlayerSearch = () => {
                 <Button
                     onClick = {() => {
                         if(pageNum-1 > 0){
-                            console.log(pageNum);
                             searchPlayers(searchName, pageNum-1);
                             setPageNum(pageNum-1);
                         }
@@ -40,10 +39,10 @@ const PlayerSearch = () => {
                 >
                     Prev. Page
                 </Button>
+                <Text paddingTop="0.7em">Page {pageNum} of {totalPages}</Text>
                 <Button
                     onClick = {() => {
-                        if(pageNum+1 < totalPages){
-                            console.log(pageNum);
+                        if(pageNum+1 <= totalPages){
                             searchPlayers(searchName, pageNum+1);
                             setPageNum(pageNum+1);
                         }
