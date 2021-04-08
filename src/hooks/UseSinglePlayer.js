@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import balldontlie from '../api/balldontlie';
+import axios from 'axios';
 
 const UseSinglePlayer = (playerId) => {
     const[playerInfo, setPlayerInfo] = useState({});
@@ -47,10 +48,19 @@ const UseSinglePlayer = (playerId) => {
         }
     };
 
+    const updatePlayerClicks = async () => {
+        try{
+            const response = await axios.put(`http://localhost:3000/api/playerclicks?player_id=${playerId}`);
+        } catch(err){
+            setErrorMessage('Something Went Wrong');
+        }
+    }
+
 
     useEffect( () => {
         getPlayerInfo();
         getPlayerStats();
+        updatePlayerClicks();
     }, []);
 
     return[playerInfo, teamInfo, lastGameStats, lastPlayerSeason, lastSeasonAverage, errorMessage];
