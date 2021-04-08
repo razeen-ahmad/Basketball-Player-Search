@@ -4,7 +4,6 @@ import Link from 'next/link';
 import NBALogo from './NBALogo';
 
 const PlayerCard = ({ player }) => {
-    const ThisLogo = `NBAIcons.${player.team.abbreviation.toLowerCase()}`;
     return(
         <Box borderRadius="lg" bg="brand.100">
             <Link href={`/players/${player.id}`}>
