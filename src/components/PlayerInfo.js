@@ -1,13 +1,14 @@
 import React from 'react';
 import { Avatar, Box, Text } from '@chakra-ui/react';
 
-const playerInfo = ({ infoData }) => {
+const playerInfo = ({ playerInfo, teamInfo }) => {
 
     return(
         <Box>
-           <Avatar name={`${infoData.first_name} ${infoData.last_name}`}/>
+           <Avatar name={`${playerInfo.first_name} ${playerInfo.last_name}`}/>
            <Box>
-               <Text> Name: {infoData.first_name} {infoData.last_name}  </Text>
+               <Text> Name: {playerInfo.first_name} {playerInfo.last_name}  </Text>
+               <Text>Team: {teamInfo.full_name}</Text>
            </Box>
 
         </Box>        

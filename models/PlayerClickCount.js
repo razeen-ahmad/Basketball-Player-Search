@@ -6,4 +6,4 @@ const PlayerClickCountSchema = new Schema({
   clicks: Number,
 });
 
-module.exports = mongoose.model('PlayerClickCount', PlayerClickCountSchema);
+module.exports = mongoose.models.PlayerClickCount || mongoose.model('PlayerClickCount', PlayerClickCountSchema);

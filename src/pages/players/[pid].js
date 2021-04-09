@@ -19,9 +19,7 @@ const Player = ({ params }) => {
     return(
         <Box>
             {errorMessage ? errorMessage : null}
-            <PlayerInfo infoData={playerInfo} /> 
-            Team: {teamInfo.full_name}
-            <br />
+            <PlayerInfo playerInfo={playerInfo} teamInfo={teamInfo}  />
             {hasData ? `Last active season: ${lastPlayerSeason}, averaging ${lastSeasonAverage.pts} points` : null}
             <br />
             {hasGameStats ? `last game points: ${lastGameStats.pts}` : "no game stats available for this player"}              
