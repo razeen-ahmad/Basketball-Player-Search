@@ -1,5 +1,5 @@
 import dbConnect from '../../../util/dbConnect';
-var TeamId = require('../../../../models/TeamId');
+var TeamId = require('../../../../models/TeamId.js');
 
 export default async function handler(req, res) {
   const { method } = req;

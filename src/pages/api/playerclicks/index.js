@@ -1,5 +1,5 @@
 import dbConnect from '../../../util/dbConnect';
-var PlayerClickCount = require('../../../../models/PlayerClickCount');
+var PlayerClickCount = require('../../../../models/PlayerClickCount.js');
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -36,6 +36,11 @@ export default async function handler(req, res) {
             const playerClicks = await PlayerClickCount.find({player_id});
             //if this player_id is not in database, then create and add new one, with clicks instantiated to 1
             if(playerClicks.length == 0) {
+                // const newPlayerClicks = new PlayerClickCount({
+                //     player_id,
+                //     clicks: 1,
+                // });
+                // newPlayerClicks.save();
                 const newPlayerClicks = await PlayerClickCount.create(
                     {
                         player_id, 

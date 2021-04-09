@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { Box, Text } from '@chakra-ui/react';
 import UseSinglePlayer from '../../hooks/UseSinglePlayer';
+import PlayerInfo from '../../components/PlayerInfo';
 
 export function getServerSideProps(context) {
     return {
@@ -18,8 +19,7 @@ const Player = ({ params }) => {
     return(
         <Box>
             {errorMessage ? errorMessage : null}
-            Player: {playerInfo.first_name} {playerInfo.last_name}
-            <br />
+            <PlayerInfo infoData={playerInfo} /> 
             Team: {teamInfo.full_name}
             <br />
             {hasData ? `Last active season: ${lastPlayerSeason}, averaging ${lastSeasonAverage.pts} points` : null}
