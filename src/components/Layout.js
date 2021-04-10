@@ -1,6 +1,11 @@
+import NavBar from './Navbar/Navbar';
+
 const Layout = ({ children }) => {
     return (
-        <div>{children}</div>
+        <>
+            <NavBar />
+            <div>{children}</div>
+        </>
     );
 }
 

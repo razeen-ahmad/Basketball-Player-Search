@@ -14,7 +14,7 @@ import Link from 'next/link';
 
 const RankCard = ({ rankedPlayer, rank }) => {
     return(
-        <Box borderBottom="4px" borderColor="brand.100">
+        <Box borderBottom="4px" paddingY="1em" borderColor="brand.100" overflow="auto" overflowY="hidden">
             <Link href={`/players/${rankedPlayer.player_id}`}>
                 <a>
                     <HStack>
