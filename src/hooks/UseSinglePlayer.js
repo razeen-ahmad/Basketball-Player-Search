@@ -48,19 +48,18 @@ const UseSinglePlayer = (playerId) => {
         }
     };
 
-    const updatePlayerClicks = async () => {
-        try{
-            const response = await axios.put(`http://localhost:3000/api/playerclicks?player_id=${playerId}`);
-        } catch(err){
-            setErrorMessage('Something Went Wrong');
-        }
-    }
+    // const updatePlayerClicks = async () => {
+    //     try{
+    //         const response = await axios.put(`http://localhost:3000/api/playerclicks?player_id=${playerId}`);
+    //     } catch(err){
+    //         setErrorMessage('Something Went Wrong');
+    //     }
+    // }
 
 
     useEffect( () => {
         getPlayerInfo();
         getPlayerStats();
-        updatePlayerClicks();
     }, []);
 
     return[playerInfo, teamInfo, lastGameStats, lastPlayerSeason, lastSeasonAverage, errorMessage];

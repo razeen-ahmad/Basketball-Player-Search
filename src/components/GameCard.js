@@ -35,7 +35,7 @@ const GameCard = ({ gameStats }) => {
                     <Box fontSize="lg" borderBlock="2px" borderColor="brand.200" width="80%">
                         <Text textAlign="center" paddingTop="1em">{dateString}</Text>
                         <Text textAlign="center" fontStyle="italic">
-                            {gameStats.player.first_name} {gameStats.player.last_name} played with the {gameStats.team.full_name} 
+                            {gameStats.player.first_name} {gameStats.player.last_name} played for the {gameStats.team.full_name} 
                             {withHomeTeam ? " (home team)" : " (away team)"}
                         </Text>
                         <HStack justifyContent="center">

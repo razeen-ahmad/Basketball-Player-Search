@@ -4,6 +4,9 @@ var PlayerClickCount = require('../../../../models/PlayerClickCount.js');
 export default async function handler(req, res) {
   const { method } = req;
   const { player_id } = req.query;
+  const { first_name } = req.query;
+  const { last_name } = req.query;
+  const { team } = req.query;
 
   await dbConnect();
 
@@ -29,8 +32,8 @@ export default async function handler(req, res) {
     case 'PUT':
         try{
             //this method requires player_id param
-            if(!player_id){
-                res.status(400).json({ success: false, reason: "need player_id param" })
+            if(!player_id || !first_name || !last_name || !team){
+                res.status(400).json({ success: false, reason: "need all query params" })
             }
             //first check if query player_id is already in database
             const playerClicks = await PlayerClickCount.find({player_id});
@@ -40,6 +43,9 @@ export default async function handler(req, res) {
                     {
                         player_id, 
                         clicks: 1,
+                        first_name,
+                        last_name,
+                        team,
                     }
                 );
                 res.status(201).json({ success: true, data: newPlayerClicks, path: "created new document" })
