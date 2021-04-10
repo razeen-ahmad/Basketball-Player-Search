@@ -14,7 +14,7 @@ const SearchBar = ({ term, onTermChange, onSearch }) => {
     }
 
     return (
-        <Container maxWidth="100ch" mt={50}>
+        <Container width="90%" overflowX="hidden" mt={50} bg="brand.300" color="brand.100">
             <form onChange={onChange} onSubmit={onSubmit}>
                 <FormControl id="search bar">
                     <Input 

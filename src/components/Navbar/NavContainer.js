@@ -9,11 +9,13 @@ const NavContainer = ({ children, ...props }) => {
             justify="space-between"
             wrap="wrap"
             w="100%"
-            margin="0 0 0 0"
             mb={8}
             p={10}
             bg="brand.200"
+            opacity="1"
             color="brand.100"
+            position="sticky"
+            top="0px"
             {...props}
         >
             {children}

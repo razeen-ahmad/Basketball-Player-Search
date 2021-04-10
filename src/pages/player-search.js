@@ -28,8 +28,9 @@ const PlayerSearch = () => {
             {/* render results from search bar */}
             {errorMessage ? <text>{errorMessage}</text> : null}
             <PlayerList players={players}/>
-            <Stack direction="row" spacing={4}>
+            <Stack direction="row" spacing={4} justifyContent="space-around" padding="2em" paddingTop="0em">
                 <Button
+                    bg="brand.100"
                     onClick = {() => {
                         if(pageNum-1 > 0){
                             searchPlayers(searchName, pageNum-1);
@@ -39,8 +40,9 @@ const PlayerSearch = () => {
                 >
                     Prev. Page
                 </Button>
-                <Text paddingTop="0.7em">Page {pageNum} of {totalPages}</Text>
+                <Text color="brand.300" paddingTop="0.7em">Page {pageNum} of {totalPages}</Text>
                 <Button
+                    bg="brand.100"
                     onClick = {() => {
                         if(pageNum+1 <= totalPages){
                             searchPlayers(searchName, pageNum+1);
