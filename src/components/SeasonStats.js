@@ -16,14 +16,11 @@ import {
 } from '@chakra-ui/react';
 
 const SeasonStats = ({ seasonAverages }) => {
-    
-    if(seasonAverages.fg_pct){
-        const fgPct = (Math.round(seasonAverages.fg_pct * 10000))/100;
+    const fgPct = (Math.round(seasonAverages.fg_pct * 10000))/100;
+    var nextSeason = ((seasonAverages.season + 1) % 100).toString();
+    if(nextSeason < 10){
+        nextSeason = `0${nextSeason}`;
     }
-    else{
-        const fgPct = null;
-    }
-
     return(
         <>
             <Text textAlign="center" fontSize="2xl" fontWeight="bold" paddingTop="3em">Latest Season Average</Text>
@@ -37,9 +34,9 @@ const SeasonStats = ({ seasonAverages }) => {
                         justifyContent="center"
                         width="80%"
                     >
-                        <Stat borderBlock="1px" borderColor="brand.100">
+                        <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
                             <StatLabel>Season</StatLabel>
-                            <StatNumber>{ seasonAverages.season } - { (seasonAverages.season + 1) % 100}</StatNumber>
+                            <StatNumber>{ seasonAverages.season } - {nextSeason}</StatNumber>
                             <StatHelpText>
                                 NBA season
                             </StatHelpText>
@@ -51,30 +48,30 @@ const SeasonStats = ({ seasonAverages }) => {
                                 Games
                             </StatHelpText>
                         </Stat>
-                        <Stat borderBlock="1px" borderColor="brand.100">
+                        <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
                             <StatLabel>PPG</StatLabel>
                             <StatNumber>{ seasonAverages.pts ? seasonAverages.pts : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Points per Game
                             </StatHelpText>
                         </Stat>
-                        <Stat borderBlock="1px" borderColor="brand.100">
+                        <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
                             <StatLabel>AST</StatLabel>
                             <StatNumber>{ seasonAverages.ast ? seasonAverages.ast : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Assists per Game
                             </StatHelpText>
                         </Stat>
-                        <Stat borderBlock="1px" borderColor="brand.100">
+                        <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
                             <StatLabel>Rebs</StatLabel>
                             <StatNumber>{ seasonAverages.reb ? seasonAverages.reb : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Rebounds per Game
                             </StatHelpText>
                         </Stat>
-                        <Stat borderBlock="1px" borderColor="brand.100">
+                        <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
                             <StatLabel>FG%</StatLabel>
-                            <StatNumber>{ seasonAverages.fg_pct ? `${(Math.round(seasonAverages.fg_pct * 10000))/100}%`: "N/A" }</StatNumber>
+                            <StatNumber>{ seasonAverages.fg_pct ? `${fgPct}%`: "N/A" }</StatNumber>
                             <StatHelpText>
                                 Field Goal Percentage
                             </StatHelpText>

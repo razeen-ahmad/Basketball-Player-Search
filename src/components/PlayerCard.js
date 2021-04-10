@@ -9,7 +9,7 @@ const PlayerCard = ({ player }) => {
             <Link href={`/players/${player.id}`}>
                 <a>
                     <Stack direction="row">
-                        <NBALogo thisTeam={player.team.abbreviation}/>
+                        <NBALogo thisTeam={player.team.id}/>
                         <Box>
                             <Heading paddingRight="0.1em">
                             {player.first_name} {player.last_name}

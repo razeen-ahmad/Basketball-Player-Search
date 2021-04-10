@@ -2,6 +2,8 @@ import { Box } from '@chakra-ui/react';
 import UseSinglePlayer from '../../hooks/UseSinglePlayer';
 import PlayerInfo from '../../components/PlayerInfo';
 import SeasonStats from '../../components/SeasonStats';
+import GameCard from '../../components/GameCard';
+import NoStats from '../../components/NoStats';
 
 export function getServerSideProps(context) {
     return {
@@ -21,8 +23,7 @@ const Player = ({ params }) => {
             {errorMessage ? errorMessage : null}
             <PlayerInfo playerInfo={playerInfo} teamInfo={teamInfo}  />
             {hasStats ? <SeasonStats seasonAverages={lastSeasonAverage} /> : null}
-            <br />
-            {hasGame ? `last game points: ${lastGameStats.pts}` : "no game stats available for this player"}              
+            {hasGame ? <GameCard gameStats={lastGameStats}/> : <NoStats firstName={playerInfo.first_name} lastName={playerInfo.last_name}/>}              
         </Box>
     );
 };
