@@ -6,7 +6,7 @@ import { SimpleGrid, HStack, Text } from '@chakra-ui/react';
 var PlayerClickCount = require('../../models/PlayerClickCount');
 import RankCard from '../components/RankCard';
 
-const Rankings = ({ rankData }) => {
+const LeaderBoard = ({ rankData }) => {
     
     var currRank = 1;
     var lastClick = rankData[0].clicks;
@@ -60,4 +60,4 @@ export async function getServerSideProps(context) {
     }
   };
 
-  export default Rankings;
+  export default LeaderBoard;
