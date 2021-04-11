@@ -43,8 +43,8 @@ export default function App({ Component, pageProps }) {
         <>
             {loading ? (
                     <Center>
-                        <Text fontSIze="xl">Loading ... </Text>
-                        <Spinner size="200px" color="brand.100"/>
+                        <Text>Loading ... </Text>
+                        <Spinner />
                     </Center>
             ) : ( 
                 <ChakraProvider theme={theme}>

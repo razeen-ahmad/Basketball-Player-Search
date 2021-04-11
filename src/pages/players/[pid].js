@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
 import UseSinglePlayer from '../../hooks/UseSinglePlayer';
 import UsePlayerClickCount from '../../hooks/UsePlayerClickCount';
 import PlayerInfo from '../../components/player/PlayerInfo';
 import SeasonStats from '../../components/player/SeasonStats';
-import GameCard from '../../components/GameCard';
+import GameCard from '../../components/player/GameCard';
 import NoStats from '../../components/player/NoStats';
 import Layout from '../../components/Layout';
 
@@ -29,12 +28,12 @@ const Player = ({ params }) => {
     UsePlayerClickCount(pid, playerInfo.first_name, playerInfo.last_name, teamInfo.full_name);
 
     return(
-        <Layout>
+        <>
             {errorMessage ? errorMessage : null}
             <PlayerInfo playerInfo={playerInfo} teamInfo={teamInfo}  />
             {hasStats ? <SeasonStats seasonAverages={lastSeasonAverage} /> : null}
             {hasGame ? <GameCard gameStats={lastGameStats}/> : <NoStats firstName={playerInfo.first_name} lastName={playerInfo.last_name}/>}              
-        </Layout>
+        </>
     );
 };
 

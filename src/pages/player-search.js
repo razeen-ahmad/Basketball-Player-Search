@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import UsePlayers from '../hooks/UsePlayers';
 import SearchBar from '../components/SearchBar';
 import PlayerList from '../components/player/PlayerList';
-import { Stack, Button, Text } from '@chakra-ui/react';
+import { Stack, Button, Text, Kbd, VStack } from '@chakra-ui/react';
 
 //page to search for players using search bar
 const PlayerSearch = () => {
@@ -18,7 +18,14 @@ const PlayerSearch = () => {
             <Head>
                 <title>Player Search</title>
             </Head>
-
+            <VStack justifyContent="center">
+                <Text textAlign="center" fontSize="xxx-large" fontWeight="bold">Player Profile Search</Text>
+                <Text width="70%" textAlign="center" fontSize="lg">
+                    This is the page where you can search for any NBA player from 1979-Present. Type in any part of a player's name 
+                    into the search bar and hit <Kbd>Enter</Kbd> to fetch players from the available data. To see an individual player's 
+                    data, click on their name!
+                </Text>
+            </VStack>
             <SearchBar 
                 term = {searchName}
                 onTermChange = {setSearchName}

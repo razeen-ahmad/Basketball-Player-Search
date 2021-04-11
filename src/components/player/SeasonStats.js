@@ -31,42 +31,42 @@ const SeasonStats = ({ seasonAverages }) => {
                         width="80%"
                     >
                         <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
-                            <StatLabel>Season</StatLabel>
+                            <StatLabel paddingTop="1em">Season</StatLabel>
                             <StatNumber>{ seasonAverages.season } - {nextSeason}</StatNumber>
                             <StatHelpText>
                                 NBA season
                             </StatHelpText>
                         </Stat>
                         <Stat borderBlock="1px" borderColor="brand.100">
-                            <StatLabel>Games Played</StatLabel>
+                            <StatLabel paddingTop="1em">Games Played</StatLabel>
                             <StatNumber>{ seasonAverages.games_played ? seasonAverages.games_played : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Games
                             </StatHelpText>
                         </Stat>
                         <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
-                            <StatLabel>PPG</StatLabel>
+                            <StatLabel paddingTop="1em">PPG</StatLabel>
                             <StatNumber>{ seasonAverages.pts ? seasonAverages.pts : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Points per Game
                             </StatHelpText>
                         </Stat>
                         <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
-                            <StatLabel>AST</StatLabel>
+                            <StatLabel paddingTop="1em">AST</StatLabel>
                             <StatNumber>{ seasonAverages.ast ? seasonAverages.ast : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Assists per Game
                             </StatHelpText>
                         </Stat>
                         <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
-                            <StatLabel>Rebs</StatLabel>
+                            <StatLabel paddingTop="1em">Rebs</StatLabel>
                             <StatNumber>{ seasonAverages.reb ? seasonAverages.reb : "N/A" }</StatNumber>
                             <StatHelpText>
                                 Rebounds per Game
                             </StatHelpText>
                         </Stat>
                         <Stat borderBlock="1px" borderColor="brand.100" width="max-content">
-                            <StatLabel>FG%</StatLabel>
+                            <StatLabel paddingTop="1em">FG%</StatLabel>
                             <StatNumber>{ seasonAverages.fg_pct ? `${fgPct}%`: "N/A" }</StatNumber>
                             <StatHelpText>
                                 Field Goal Percentage

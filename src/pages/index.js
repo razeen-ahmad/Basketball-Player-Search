@@ -27,7 +27,7 @@ export default function Home() {
               </Text>
               <Text width="70%">
                 This is a fullstack app that allows users to search for NBA player info with data from 
-                <Link href="https://www.balldontlie.io/#attributes"> an open source basketball API↗. </Link>
+                <Link href="https://www.balldontlie.io/#attributes"><a> an open source basketball API↗. </a></Link>
                 You can search for any NBA player (1979-Present) in the 'Player Search' page and view each player's data by clicking
                 on their card. The number of visits to each player's individual page is counted and logged in a back-end
                 database, which is then ranked and displayed in the 'Leaderboard' page. This app was built using
