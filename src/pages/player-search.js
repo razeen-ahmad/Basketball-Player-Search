@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import UsePlayers from '../hooks/UsePlayers';
 import SearchBar from '../components/SearchBar';
-import PlayerList from '../components/PlayerList';
+import PlayerList from '../components/player/PlayerList';
 import { Stack, Button, Text } from '@chakra-ui/react';
 
 //page to search for players using search bar

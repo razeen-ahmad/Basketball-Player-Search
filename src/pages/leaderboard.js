@@ -3,7 +3,7 @@ import Head from 'next/head';
 import dbConnect from '../util/dbConnect';
 import { SimpleGrid, HStack, Text } from '@chakra-ui/react';
 var PlayerClickCount = require('../../models/PlayerClickCount');
-import RankCard from '../components/RankCard';
+import RankCard from '../components/player/RankCard';
 
 //page that displays all data from database and ranks each entry based on number of visits/clicks
 export async function getServerSideProps(context) {

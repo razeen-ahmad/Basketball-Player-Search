@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import UseSinglePlayer from '../../hooks/UseSinglePlayer';
 import UsePlayerClickCount from '../../hooks/UsePlayerClickCount';
-import PlayerInfo from '../../components/PlayerInfo';
-import SeasonStats from '../../components/SeasonStats';
+import PlayerInfo from '../../components/player/PlayerInfo';
+import SeasonStats from '../../components/player/SeasonStats';
 import GameCard from '../../components/GameCard';
-import NoStats from '../../components/NoStats';
+import NoStats from '../../components/player/NoStats';
 import Layout from '../../components/Layout';
 
 //page for each individual player. first, need to get player_id from router path.

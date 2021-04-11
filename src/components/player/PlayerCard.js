@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Stack, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
-import NBALogo from './NBALogo';
+import NBALogo from '../NBALogo';
 
 //card for each player that fits search paramaters in '/player-search' page
 const PlayerCard = ({ player }) => {
