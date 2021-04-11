@@ -25,10 +25,11 @@ const About = () => {
                             <HStack>
                                 <Text paddingX="3em">
                                     I am a student at the University of Minnesota double majoring in finance and computer science,
-                                    graduating in May 2023. I made this website to gain more experience with full-stack development while 
+                                    graduating in Spring 2023. I made this website to gain more experience with full-stack development while 
                                     learning more about one of my favorite past times: basketball. Although much of the data here is incomplete, 
-                                    I had a great time learning more about basketball players and the amount of data collected on them. If you 
-                                    want to see more of my projects (like a basketball stat analysis with Python), feel free to check out my website!
+                                    I had a great time learning more about NBA players and the data collected on them. If you want to see more of 
+                                    my projects (like a basketball stat analysis with Python Pandas), feel free to
+                                    <Link href="https://www.razeenahmad.com"><a> check out my website→</a></Link>
                                 </Text>
                                 <VStack paddingX="0.5em">
                                     <Link href="https://www.razeenahmad.com"><a><CgLaptop size={35}/></a></Link>

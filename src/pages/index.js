@@ -21,7 +21,7 @@ export default function Home() {
               alt="Basketball Court with Sunset" 
             />
             <VStack>
-              <Text fontSize="4xl" fontWeight="extrabold">
+              <Text textAlign="center" fontSize="4xl" fontWeight="extrabold">
                 Welcome to NBA Player Search!
               </Text>
               <Text width="70%">
