@@ -6,7 +6,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     return (
       <Link href={to}>
         <a>
-          <Text display="block" {...rest}>
+          <Text display="block" textDecoration="underline" {...rest}>
             {children}
           </Text>
         </a>

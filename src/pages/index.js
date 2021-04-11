@@ -15,22 +15,21 @@ export default function Home() {
         <Center paddingBottom="2em">
           <VStack spacing={2}>
             <Image 
-              width="xxl"
-              height="xl"
+              maxH="xl"
               src="/bballcourt.jpg" 
-              objectFit="fill"
+              objectFit="scale-down"
               alt="Basketball Court with Sunset" 
             />
             <VStack>
               <Text fontSize="4xl" fontWeight="extrabold">
                 Welcome to NBA Player Search!
               </Text>
-              <Text paddingX="25em">
-                This is a fullstack app that allows users to search for NBA player info with data from the 
+              <Text width="70%">
+                This is a fullstack app that allows users to search for NBA player info with data from 
                 <Link href="https://www.balldontlie.io/#attributes"> an open source basketball API↗. </Link>
-                You can search for any player in the NBA in the 'Search' page and view each player's data by clicking
-                on their card. Visits to each each player's page increments a counter to measure how many times their page
-                has been visited. This data is ranked and displayed on the 'Leaderboard' page. This app was built using
+                You can search for any NBA player (1979-Present) in the 'Player Search' page and view each player's data by clicking
+                on their card. The number of visits to each player's individual page is counted and logged in a back-end
+                database, which is then ranked and displayed in the 'Leaderboard' page. This app was built using
                 MongoDB, Express.js, React.js, Next.js, and Chakra-UI. Take a look and let me know what you think!
               </Text>
               <Link href="/player-search">
@@ -47,18 +46,3 @@ export default function Home() {
     </Layout>
   )
 }
-
-// export async function getServerSideProps(context) {
-//   const { client } = await connectToDatabase();
-
-//   //manually get 'players' database
-//   const db = await client.db('players');
-//   const data = await db.collection("player_clicks").find({}).toArray();
-
-//   //turn all data from mongodb collection into plain string objects
-//   const properties = JSON.parse(JSON.stringify(data));
-
-//   return {
-//     props: {properties: properties },
-//   }
-// }
