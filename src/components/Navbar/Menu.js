@@ -18,7 +18,7 @@ const Menu = ({ isOpen }) => {
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/player-search">Player Search</MenuItem>
                 <MenuItem to="/leaderboard">Leaderboard</MenuItem>
-                <MenuItem to="/contact">Contact</MenuItem>
+                <MenuItem to="/about">About</MenuItem>
             </Stack>
         </Box>
     )

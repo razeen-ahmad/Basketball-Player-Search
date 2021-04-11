@@ -5,7 +5,7 @@ import NBALogo from './NBALogo';
 
 const PlayerCard = ({ player }) => {
     return(
-        <Box borderRadius="lg" bg="brand.100">
+        <Box boxShadow="xl" borderRadius="lg" bg="brand.100">
             <Link href={`/players/${player.id}`}>
                 <a>
                     <Stack direction="row">

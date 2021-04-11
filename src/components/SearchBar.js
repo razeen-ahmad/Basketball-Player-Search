@@ -29,7 +29,7 @@ const SearchBar = ({ term, onTermChange, onSearch }) => {
                         />
                     </FormControl>
                 </form>
-                <Button bg="brand.100" onClick={onSubmit}>Search Player</Button>
+                <Button bg="brand.100" onClick={onSubmit}>Search</Button>
             </HStack>
         </Container>
     )
