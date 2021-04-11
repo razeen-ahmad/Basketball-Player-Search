@@ -1,35 +1,49 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '../components/Layout';
-import { Box, Text, Image, HStack, Center } from '@chakra-ui/react';
-// import Image from 'next/image';
+import { Text, Image, VStack, Center, Button, SlideFade } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
-export default function Home({ properties }) {
-  //properties === all data in 'player_clicks' collection
+export default function Home() {
+
   return (
     <Layout>
       <Head>
         <title>Basketball Player Search</title>
       </Head>
-      <Center>
-        <Box justifyContent="center" boxSize="xl">
-          <Image 
-            src="/bballcourt.jpg" 
-            objectFit="fill"
-            alt="Basketball Court with Sunset" />
-        </Box>
-      </Center>
-      {/* <Box objectFit="contain">
-        <Image 
-          src="/bballcourt.jpg"
-          height={20}
-          width={50}
-          layout="responsive"
-        />
-      </Box> */}
-      <Link href='/player-search'>
-        <a>To player search!</a>
-      </Link>
+      <SlideFade in={true}>
+        <Center paddingBottom="2em">
+          <VStack spacing={2}>
+            <Image 
+              width="xxl"
+              height="xl"
+              src="/bballcourt.jpg" 
+              objectFit="fill"
+              alt="Basketball Court with Sunset" 
+            />
+            <VStack>
+              <Text fontSize="4xl" fontWeight="extrabold">
+                Welcome to NBA Player Search!
+              </Text>
+              <Text paddingX="4em">
+                This is a fullstack app that allows users to search for NBA player info with data from the 
+                <Link href="https://www.balldontlie.io/#attributes"> an open source basketball API↗. </Link>
+                You can search for any player in the NBA in the 'Search' page and view each player's data by clicking
+                on their card. Visits to each each player's page increments a counter to measure how many times their page
+                has been visited. This data is ranked and displayed on the 'Leaderboard' page. This app was built using
+                MongoDB, Express.js, React.js, Next.js, and Chakra-UI. Take a look and let me know what you think!
+              </Text>
+              <Link href="/player-search">
+                <a>
+                  <Button rightIcon={<ArrowForwardIcon />} bg="brand.100" size="lg">
+                    Get Started
+                  </Button>
+                </a>
+              </Link>
+            </VStack>
+          </VStack>
+        </Center>
+      </SlideFade>
     </Layout>
   )
 }
