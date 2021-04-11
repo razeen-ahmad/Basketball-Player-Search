@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex } from '@chakra-ui/react';
 
 const NavContainer = ({ children, ...props }) => {
+    //container for all navbar elements
     return (
         <Flex
             as="nav"
@@ -16,6 +17,7 @@ const NavContainer = ({ children, ...props }) => {
             color="brand.100"
             position="sticky"
             top="0px"
+            zIndex={100}
             {...props}
         >
             {children}

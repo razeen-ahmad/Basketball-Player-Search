@@ -10,16 +10,19 @@ const UseSinglePlayer = (playerId) => {
     const[lastSeasonAverage, setLastSeasonAverage] = useState({});
     const[errorMessage, setErrorMessage] = useState('');
 
+    //function to get specific player and team's basic info from balldontlie api
+    //use playerid passed in as param to hook
     const getPlayerInfo = async() => {
         try{
             const response = await balldontlie.get(`/players/${playerId}}`);
             setPlayerInfo(response.data);
-            setTeamInfo(response.data.team);
+            setTeamInfo(response.data.team); //although this is included in playerInfo, do this to avoid getting "can't access .team of undefined error"
         } catch(err){
             setErrorMessage('Something Went Wrong');
         }
     };
 
+    //get all available stats (if available) of specific player specified with call to hook
     const getPlayerStats = async() => {
         try{
             const response = await balldontlie.get('/stats', {
@@ -40,7 +43,7 @@ const UseSinglePlayer = (playerId) => {
                         "player_ids[]": playerId,
                     }
                 });
-                setLastSeasonAverage(sznAvgResponse.data.data[0]);
+                setLastSeasonAverage(sznAvgResponse.data.data[0]);//latest season averages will be first entry in array
 
             }
         } catch(err) {
@@ -54,7 +57,7 @@ const UseSinglePlayer = (playerId) => {
         getPlayerStats();
     }, []);
 
-    return[playerInfo, teamInfo, lastGameStats, lastPlayerSeason, lastSeasonAverage, errorMessage];
+    return[playerInfo, teamInfo, lastGameStats, lastSeasonAverage, errorMessage];
 
 };
 

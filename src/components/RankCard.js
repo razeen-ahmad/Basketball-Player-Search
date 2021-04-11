@@ -12,6 +12,8 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 
+//each player card on 'leaderboard' page. pass in rank because have to account for same number of profile visits
+//between players. e.g. if two players have 5 "clicks" according to our MongoDB, then they should have the same rank
 const RankCard = ({ rankedPlayer, rank }) => {
     return(
         <Box borderTop="4px" paddingY="1em" borderColor="brand.100" overflow="auto" overflowY="hidden">

@@ -6,15 +6,11 @@ import {
     StatNumber,
     StatHelpText,
     Text,
-    StatArrow,
-    StatGroup,
-    Flex,
-    Spacer,
-    Box,
     SimpleGrid,
     HStack,
 } from '@chakra-ui/react';
 
+//stack of cards that display season average stats (as available) from balldontlieapi
 const SeasonStats = ({ seasonAverages }) => {
     const fgPct = (Math.round(seasonAverages.fg_pct * 10000))/100;
     var nextSeason = ((seasonAverages.season + 1) % 100).toString();

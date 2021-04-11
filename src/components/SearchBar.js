@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { Input, Container, FormControl, HStack, Text, Button } from "@chakra-ui/react"
 
+//pass in state variable term and change term with 'onTermChange'
+//use term to track current value of string in search bar.
+//'onSearch' is function that takes term and submits it to api to get results based on the search term.
 const SearchBar = ({ term, onTermChange, onSearch }) => {
 
 
     const onChange = (event) => {
-        event.preventDefault();
+        event.preventDefault(); //prevent default, only want to change passed in state variable 'term'
     }
 
     const onSubmit = (event) => {
         event.preventDefault();
-        onSearch(term);
+        onSearch(term);//call api to get results with term
     }
 
     return (

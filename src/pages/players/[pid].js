@@ -7,6 +7,7 @@ import GameCard from '../../components/GameCard';
 import NoStats from '../../components/NoStats';
 import Layout from '../../components/Layout';
 
+//page for each individual player. first, need to get player_id from router path.
 export function getServerSideProps(context) {
     return {
       props: {params: context.params}
@@ -14,13 +15,17 @@ export function getServerSideProps(context) {
   }
 
 const Player = ({ params }) => {
-    const {pid} = params;
+    const {pid} = params;//get player_id
 
-    const[playerInfo, teamInfo, lastGameStats, lastPlayerSeason, lastSeasonAverage, errorMessage] = UseSinglePlayer(pid);
-    const hasStats = lastGameStats !== undefined;
+    //UseSinglePlayer hook to get all available data from balldontlie api for this player
+    const[playerInfo, teamInfo, lastGameStats, lastSeasonAverage, errorMessage] = UseSinglePlayer(pid);
+    //boolean to check if this player has season average stats (meaning they will have a last game entry)
+    const hasStats = lastGameStats !== undefined; 
+    //boolean to check if this player individual game stats (if last game entry is not null)
     const hasGame = (hasStats && lastGameStats.pts !== null);
 
-    
+    //hook to update player clickcount in database, because we are loading this page. 
+    //hook params depend on fetched data from previous hook
     UsePlayerClickCount(pid, playerInfo.first_name, playerInfo.last_name, teamInfo.full_name);
 
     return(

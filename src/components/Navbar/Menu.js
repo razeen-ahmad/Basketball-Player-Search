@@ -9,12 +9,13 @@ const Menu = ({ isOpen }) => {
             flexBasis={{ base: "100%", md: "auto" }}
         >
             <Stack
-                    spacing={8}
-                    align="center"
-                    justify={["center", "space-between", "flex-end", "flex-end"]}
-                    direction={["column", "row", "row", "row"]}
-                    pt={[4, 4, 0, 0]}
-                >
+                spacing={8}
+                align="center"
+                justify={["center", "space-between", "flex-end", "flex-end"]}
+                direction={["column", "row", "row", "row"]}
+                pt={[4, 4, 0, 0]}
+            >
+                {/* each navigation page option */}
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/player-search">Player Search</MenuItem>
                 <MenuItem to="/leaderboard">Leaderboard</MenuItem>

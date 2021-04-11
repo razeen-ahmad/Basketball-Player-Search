@@ -7,11 +7,12 @@ const UsePlayers = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [ totalPages, setTotalPages ] = useState(0);
 
+    //function to get default (all) player data. 'num' param is current page number.
     const getPlayers = async(num) => {
         try{
             const response = await balldontlie.get('/players', {
                 params: {
-                    "per_page": 8,
+                    "per_page": 8, //stylistic choice
                     "page": num
                 }
             });
@@ -23,9 +24,11 @@ const UsePlayers = () => {
     };
 
     useEffect( () => {
-        getPlayers(0);
+        getPlayers(0);//start with calling first available page
     }, []);
 
+    //get all players that hold string in 'name' param somewhere in their full name
+    //'num' param is page number
     const searchPlayers = async (name, num) => {
         if(name.length === 0){
             getPlayers(num);

@@ -1,22 +1,24 @@
 import Head from 'next/head';
-import React, { useState, useEffect } from 'react';
-import Layout from '../components/Layout';
+import React, { useState } from 'react';
 import UsePlayers from '../hooks/UsePlayers';
 import SearchBar from '../components/SearchBar';
 import PlayerList from '../components/PlayerList';
 import { Stack, Button, Text } from '@chakra-ui/react';
 
+//page to search for players using search bar
 const PlayerSearch = () => {
     const [ searchName, setSearchName ] = useState('');
     const [ pageNum, setPageNum ] = useState(1);
 
+    //get player data based on search bar 
     const [ players, searchPlayers, errorMessage, totalPages ] = UsePlayers();
 
     return(
-        <Layout>
+        <>
             <Head>
                 <title>Player Search</title>
             </Head>
+
             <SearchBar 
                 term = {searchName}
                 onTermChange = {setSearchName}
@@ -28,6 +30,9 @@ const PlayerSearch = () => {
             {/* render results from search bar */}
             {errorMessage ? <text>{errorMessage}</text> : null}
             <PlayerList players={players}/>
+
+
+            {/* pagination buttons */}
             <Stack direction="row" spacing={4} justifyContent="space-around" padding="2em" paddingTop="0em">
                 <Button
                     bg="brand.100"
@@ -53,7 +58,7 @@ const PlayerSearch = () => {
                     Next Page
                 </Button>
             </Stack>
-        </Layout>
+        </>
 
     );
 

@@ -3,6 +3,7 @@ import "@fontsource/spartan/400.css";
 import React from 'react';
 import Router from 'next/router';
 import { Spinner, Center } from "@chakra-ui/react"
+import Layout from '../components/Layout';
 
 const theme = extendTheme({
     colors: {
@@ -43,12 +44,16 @@ export default function App({ Component, pageProps }) {
     return (
         <>
             {loading ? (
-                <Center>
-                    <Spinner size="xl" color="brand.100"/>
-                </Center> 
+                <Layout>
+                    <Center>
+                        <Spinner size="xl" color="brand.100"/>
+                    </Center>
+                </Layout> 
             ) : ( 
                 <ChakraProvider theme={theme}>
-                    <Component {...pageProps} />
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
                 </ChakraProvider>
             )}
         </>

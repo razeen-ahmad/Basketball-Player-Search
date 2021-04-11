@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const { last_name } = req.query;
   const { team } = req.query;
 
-  await dbConnect();
+  await dbConnect();//connect to database
 
   switch (method) {
     case 'GET':
@@ -23,19 +23,20 @@ export default async function handler(req, res) {
         else{
             playerClicks = await PlayerClickCount.find({});
         }
-        const data = playerClicks//JSON.parse(JSON.stringify(playerClicks));
-        res.status(200).json({ success: true, data });
+        const data = playerClicks
+        res.status(200).json({ success: true });
       } catch (error) {
-        res.status(400).json({ success: false, reason: "GET error" });
+        res.status(400).json({ success: false, "message" : "error fetching data from database" });
       }
       break;
+    //method to update(increment) existing playerclick entry or create new one
     case 'PUT':
         try{
-            //this method requires player_id param
+            //this method requires all query params
             if(!player_id || !first_name || !last_name || !team){
-                res.status(400).json({ success: false, reason: "need all query params" })
+                res.status(400).json({ success: false, "message" : "need all query params" })
             }
-            //first check if query player_id is already in database
+            //first check if player_id is already in database
             const playerClicks = await PlayerClickCount.find({player_id});
             //if this player_id is not in database, then create and add new one, with clicks instantiated to 1
             if(playerClicks.length == 0) {
@@ -48,7 +49,7 @@ export default async function handler(req, res) {
                         team,
                     }
                 );
-                res.status(201).json({ success: true, data: newPlayerClicks, path: "created new document" })
+                res.status(201).json({ success: true, "message": "successfully created new document in database" })
             }
             //otherwise, we only want to increment 'clicks' counter of existing player_id in database
             else {
@@ -57,7 +58,7 @@ export default async function handler(req, res) {
                 res.status(200).json({ success: true, data: updatedPlayerClicks });
             }
         } catch (error){
-            res.status(400).json({ success: false, "error": error.message })
+            res.status(400).json({ success: false, "error": "error updating/creating database entries" })
         }
         break;
     default:

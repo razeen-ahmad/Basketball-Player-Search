@@ -1,16 +1,17 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Layout from '../components/Layout';
 import { Text, Image, VStack, Center, Button, SlideFade } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
+//home landing page. first page visitors see.
 export default function Home() {
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Basketball Player Search</title>
       </Head>
+      {/*slide fade is load in transition */}
       <SlideFade in={true}>
         <Center paddingBottom="2em">
           <VStack spacing={2}>
@@ -43,6 +44,6 @@ export default function Home() {
           </VStack>
         </Center>
       </SlideFade>
-    </Layout>
+    </>
   )
 }

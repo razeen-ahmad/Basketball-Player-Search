@@ -1,5 +1,6 @@
 import * as NBAIcons from 'react-nba-logos';
 
+//use team_id from balldontlie api to return corresponding NBA Team Logo component
 const NBALogo = ({ thisTeam, size }) => {
     switch(thisTeam) {
         case 1:

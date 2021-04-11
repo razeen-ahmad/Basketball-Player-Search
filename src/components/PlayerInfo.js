@@ -14,7 +14,8 @@ import {
     useMediaQuery, 
 } from '@chakra-ui/react';
 
-
+//table component for player/{pid} page that displays name, height, weight, position, team city, and team name 
+//for that player (depending on what is available on balldontlie api)
 const playerInfo = ({ playerInfo, teamInfo }) => {
     const [isLargerThan760] = useMediaQuery("(min-width: 760px)")
 

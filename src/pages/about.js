@@ -1,13 +1,13 @@
 import React from 'react';
-import { Image, Box, Text, Center, HStack, VStack } from '@chakra-ui/react';
-import Layout from '../components/Layout';
+import { Image, Box, Text, HStack, VStack } from '@chakra-ui/react';
 import Link from 'next/link';
 import { CgLaptop } from "react-icons/cg";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
+//About page with details about me and links to my other pages
 const About = () => {
     return(
-        <Layout>
+        <>
             <HStack justifyContent="center" paddingBottom="6em">
                 <Box boxShadow="dark-lg" width="70%">
                     <VStack spacing={3} paddingBottom="2em">
@@ -42,7 +42,7 @@ const About = () => {
                 </Box>
                 
             </HStack>
-        </Layout>
+        </>
     );
 }
 

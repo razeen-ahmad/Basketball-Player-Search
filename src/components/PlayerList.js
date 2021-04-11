@@ -2,6 +2,7 @@ import React from 'react';
 import PlayerCard from './PlayerCard';
 import { Center, Container, Wrap, Stack, Grid, SimpleGrid } from '@chakra-ui/react';
 
+//display all search result player cards as a grid in '/search-players' page
 const PlayerList = ({ players }) => {
     const cards = players.map((item) => (
         <PlayerCard 
