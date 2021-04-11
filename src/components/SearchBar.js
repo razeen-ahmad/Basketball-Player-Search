@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Container, FormControl, HStack, Text } from "@chakra-ui/react"
+import { Input, Container, FormControl, HStack, Text, Button } from "@chakra-ui/react"
 
 const SearchBar = ({ term, onTermChange, onSearch }) => {
 
@@ -16,20 +16,20 @@ const SearchBar = ({ term, onTermChange, onSearch }) => {
     return (
         <Container width="100%" overflowX="hidden" mt={50} color="brand.300">
              <HStack justifyContent="center">
-                <Text width="max-content" fontWeight="bold">Player Name:</Text>
                 <form onChange={onChange} onSubmit={onSubmit}>
                     <FormControl id="search bar">
                             <Input 
                             type="text"
-                            placeholder="Search..." 
+                            placeholder="Player Name" 
                             size="lg" 
                             variant="outline"
                             value={term}
                             onChange={(e) => onTermChange(e.target.value)}
-                            width="120%"
+                            width="100%"
                         />
                     </FormControl>
                 </form>
+                <Button bg="brand.100" onClick={onSubmit}>Search Player</Button>
             </HStack>
         </Container>
     )
