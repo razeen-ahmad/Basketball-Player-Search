@@ -25,7 +25,7 @@ export default function Home() {
               <Text fontSize="4xl" fontWeight="extrabold">
                 Welcome to NBA Player Search!
               </Text>
-              <Text paddingX="4em">
+              <Text paddingX="25em">
                 This is a fullstack app that allows users to search for NBA player info with data from the 
                 <Link href="https://www.balldontlie.io/#attributes"> an open source basketball API↗. </Link>
                 You can search for any player in the NBA in the 'Search' page and view each player's data by clicking

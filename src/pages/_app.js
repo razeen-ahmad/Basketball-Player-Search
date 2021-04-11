@@ -1,4 +1,5 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import "@fontsource/spartan/400.css";
 
 const theme = extendTheme({
     colors: {
@@ -9,6 +10,10 @@ const theme = extendTheme({
             400: "#ff4301",
         },
     },
+    fonts: {
+        heading: "Spartan",
+        body: "Spartan",
+      },
 });
 
 
