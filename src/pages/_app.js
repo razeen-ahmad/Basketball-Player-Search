@@ -1,5 +1,8 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import "@fontsource/spartan/400.css";
+import React from 'react';
+import Router from 'next/router';
+import { Spinner, Center } from "@chakra-ui/react"
 
 const theme = extendTheme({
     colors: {
@@ -18,9 +21,36 @@ const theme = extendTheme({
 
 
 export default function App({ Component, pageProps }) {
+    const [loading, setLoading] = React.useState(false);
+    React.useEffect(() => {
+        const start = () => {
+        console.log("start");
+        setLoading(true);
+        };
+        const end = () => {
+        console.log("findished");
+        setLoading(false);
+        };
+        Router.events.on("routeChangeStart", start);
+        Router.events.on("routeChangeComplete", end);
+        Router.events.on("routeChangeError", end);
+        return () => {
+        Router.events.off("routeChangeStart", start);
+        Router.events.off("routeChangeComplete", end);
+        Router.events.off("routeChangeError", end);
+        };
+    }, []);
     return (
-        <ChakraProvider theme={theme}>
-            <Component {...pageProps} />
-        </ChakraProvider>
+        <>
+            {loading ? (
+                <Center>
+                    <Spinner size="xl" color="brand.100"/>
+                </Center> 
+            ) : ( 
+                <ChakraProvider theme={theme}>
+                    <Component {...pageProps} />
+                </ChakraProvider>
+            )}
+        </>
     );
 };
