@@ -9,7 +9,7 @@ const About = () => {
     return(
         <>
             <HStack justifyContent="center" paddingBottom="6em">
-                <Box boxShadow="dark-lg" width="70%">
+                <Box boxShadow="xl" width="90%">
                     <VStack spacing={3} paddingBottom="2em">
                         <Image 
                             width="xl"
@@ -19,11 +19,11 @@ const About = () => {
                             alt="Razeen Ahmad Headshot" 
                         />
                         <VStack>
-                            <Text fontSize="4xl" fontWeight="bold">
+                            <Text fontSize="4xl" textAlign="center" fontWeight="bold">
                                 Razeen Ahmad
                             </Text>
                             <HStack>
-                                <Text paddingX="3em">
+                                <Text textAlign="center" paddingX="0.5em">
                                     I am a student at the University of Minnesota double majoring in finance and computer science,
                                     graduating in Spring 2023. I made this website to gain more experience with full-stack development while 
                                     learning more about one of my favorite past times: basketball. Although much of the data here is incomplete, 
