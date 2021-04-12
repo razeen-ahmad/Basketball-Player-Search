@@ -51,7 +51,7 @@ const LeaderBoard = ({ rankData }) => {
                 <title>Player Leaderboard</title>
             </Head>
             <VStack justifyContent="center">
-                <Text textAlign="center" fontSize="xxx-large" fontWeight="bold">Player Profile Leaderboard</Text>
+                <Text textAlign="center" fontSize="3xl" fontWeight="bold">Player Profile Leaderboard</Text>
                 <Text width="70%" textAlign="center" fontSize="lg" paddingBottom="2em">
                     This is a leaderboard of each player based on how many times each player's profile has been visited.
                     The data is stored in a Mongo database and updated everytime a user visits an individual player's page. 

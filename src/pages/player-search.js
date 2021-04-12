@@ -19,7 +19,7 @@ const PlayerSearch = () => {
                 <title>Player Search</title>
             </Head>
             <VStack justifyContent="center">
-                <Text textAlign="center" fontSize="xxx-large" fontWeight="bold">Player Profile Search</Text>
+                <Text textAlign="center" fontSize="3xl" fontWeight="bold">Player Profile Search</Text>
                 <Text width="70%" textAlign="center" fontSize="lg">
                     This is the page where you can search for any NBA player from 1979-Present. Type in any part of a player's name 
                     into the search bar and hit <Kbd>Enter</Kbd> to fetch players from the available data. To see an individual player's 
