@@ -17,7 +17,7 @@ const UsePlayerClickCount = async (playerId, playerFirstName, playerLastName, pl
             try{
                 //make put request to MongoDB with required query params populated correctly
                 const response = await 
-                    axios.put(`http://localhost:3000/api/playerclicks?player_id=${playerId}&first_name=${playerFirstName}&last_name=${playerLastName}&team=${playerTeam}`);
+                    axios.put(`https://bballplayersearch.herokuapp.com/api/playerclicks?player_id=${playerId}&first_name=${playerFirstName}&last_name=${playerLastName}&team=${playerTeam}`);
             } catch(err){
                 setErrorMessage('Something Went Wrong');
             }
