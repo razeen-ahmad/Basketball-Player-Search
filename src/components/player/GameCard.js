@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,
+    Center,
     HStack,
     VStack,
     Text,
@@ -11,9 +12,13 @@ import {
     Td,
 } from '@chakra-ui/react';
 import NBALogo from '../NBALogo';
+import UseWindowDimensions from '../../hooks/UseWindowDimentions';
 
 //component that displays individual game stats, if available in data
 const GameCard = ({ gameStats }) => {
+    //state variables to get device height and width
+    const { height, width } = UseWindowDimensions();
+
     if(!gameStats || gameStats.game === undefined){
         return null;
     }
@@ -40,26 +45,32 @@ const GameCard = ({ gameStats }) => {
                             {gameStats.player.first_name} {gameStats.player.last_name} played for the {gameStats.team.full_name} 
                             {withHomeTeam ? " (home team)" : " (away team)"}
                         </Text>
-                        <HStack justifyContent="center">
-                            <HStack>
-                                <VStack>
-                                    <Text textAlign="left" fontWeight="semibold" marginTop="1em">Home Team</Text>
-                                    <NBALogo thisTeam={gameStats.game.home_team_id} size = {120}/>
-                                </VStack>
-                                <Text fontSize="x-large" fontWeight="bold">{gameStats.game.home_team_score}</Text>
+                        <Box width="100%">
+                            <HStack justifyContent="center">
+                                <HStack>
+                                    <VStack>
+                                        <Text textAlign="center" fontWeight="semibold" marginTop="1em">Home Team</Text>
+                                        <Box>
+                                            <NBALogo thisTeam={gameStats.game.home_team_id} size={0.25*width}/>
+                                        </Box>
+                                    </VStack>
+                                    <Text fontSize="x-large" fontWeight="bold">{gameStats.game.home_team_score}</Text>
+                                </HStack>
+                                <Text fontSize="x-large" fontWeight="bold">-</Text>
+                                <HStack>
+                                    <Text fontSize="x-large" fontWeight="bold">{gameStats.game.visitor_team_score}</Text>
+                                    <VStack>
+                                        <Text textAlign="center" fontWeight="semibold" marginTop="1em">Away Team</Text>
+                                        <Box>
+                                            <NBALogo thisTeam={gameStats.game.visitor_team_id} size={0.25*width}/>
+                                        </Box>
+                                    </VStack>
+                                </HStack>
                             </HStack>
-                            <Text fontSize="x-large" fontWeight="bold">-</Text>
-                            <HStack>
-                                <Text fontSize="x-large" fontWeight="bold">{gameStats.game.visitor_team_score}</Text>
-                                <VStack>
-                                    <Text textAlign="right" fontWeight="semibold" marginTop="1em">Away Team</Text>
-                                    <NBALogo thisTeam={gameStats.game.visitor_team_id} size = {120}/>
-                                </VStack>
-                            </HStack>
-                        </HStack>
+                        </Box>
                         <Text textAlign="center">{gameStats.player.last_name}'s Performance:</Text>
                         <HStack justifyContent="center">
-                            <Table size="md" width="max-content">                       
+                            <Table size="md" width="90%">                       
                                 <Tbody>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>Points:</Th>
