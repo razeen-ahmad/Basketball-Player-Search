@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Box,
-    Center,
     HStack,
     VStack,
     Text,
@@ -17,7 +16,7 @@ import UseWindowDimensions from '../../hooks/UseWindowDimentions';
 //component that displays individual game stats, if available in data
 const GameCard = ({ gameStats }) => {
     //state variables to get device height and width
-    const { height, width } = UseWindowDimensions();
+    const { width } = UseWindowDimensions();
 
     if(!gameStats || gameStats.game === undefined){
         return null;
@@ -68,7 +67,7 @@ const GameCard = ({ gameStats }) => {
                                 </HStack>
                             </HStack>
                         </Box>
-                        <Text textAlign="center">{gameStats.player.last_name}'s Performance:</Text>
+                        <Text textDecoration="underline" textAlign="center">{gameStats.player.last_name}'s Performance:</Text>
                         <HStack justifyContent="center">
                             <Table size="md" width="90%">                       
                                 <Tbody>
