@@ -11,30 +11,35 @@ import {
     StatHelpText,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import UseWindowDimensions from '../../hooks/UseWindowDimentions';
+import { BiHash } from "react-icons/bi";
 
 //each player card on 'leaderboard' page. pass in rank because have to account for same number of profile visits
 //between players. e.g. if two players have 5 "clicks" according to our MongoDB, then they should have the same rank
 const RankCard = ({ rankedPlayer, rank }) => {
+    const { width } = UseWindowDimensions();
     return(
-        <Box borderTop="4px" paddingY="1em" borderColor="brand.100" overflow="auto" overflowY="hidden">
+        <Box borderTop="2px" paddingY="1em" borderColor="brand.100" overflow="hidden">
             <Link href={`/players/${rankedPlayer.player_id}`}>
                 <a>
-                    <HStack>
-                        <Circle size="80px" bg="brand.100">
-                            <Text fontSize="xl"> #{rank} </Text>
-                        </Circle>
-                        <Box paddingLeft="2em" width="100%">
-                            <Heading paddingRight="0.1em">
-                                {rankedPlayer.first_name}&nbsp;{rankedPlayer.last_name}
-                            </Heading>
-                            <Text fontSize="xl">
-                                {rankedPlayer.team} ⇨
-                            </Text>
+                    <HStack justify="space-between">
+                        <HStack spacing={5}>
+                            <Text fontWeight="extrabold" letterSpacing="wider" fontSize="xl">#{rank}</Text>
+                            <Box>
+                                <Text fontSize="lg" fontWeight="bold">
+                                    {rankedPlayer.first_name} {rankedPlayer.last_name}
+                                </Text>
+                                <Text fontSize="sm" width="100%">
+                                    {rankedPlayer.team} ⇨
+                                </Text>
+                            </Box>
+                        </HStack>
+                        <Box>
+                            <Stat>
+                                <StatNumber>{rankedPlayer.clicks}</StatNumber>
+                                <StatHelpText>Visits</StatHelpText>
+                            </Stat>
                         </Box>
-                        <Stat top="1.5em" paddingBottom="3em" width="max-content">
-                            <StatNumber>{rankedPlayer.clicks}</StatNumber>
-                            <StatHelpText>Visits</StatHelpText>
-                        </Stat>
                     </HStack>
                 </a>
             </Link>

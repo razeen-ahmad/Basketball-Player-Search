@@ -15,7 +15,7 @@ import UseWindowDimensions from '../../hooks/UseWindowDimentions';
 
 //component that displays individual game stats, if available in data
 const GameCard = ({ gameStats }) => {
-    //state variables to get device height and width
+    //state variables to get device width
     const { width } = UseWindowDimensions();
 
     if(!gameStats || gameStats.game === undefined){
