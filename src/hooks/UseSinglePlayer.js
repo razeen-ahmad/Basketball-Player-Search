@@ -5,7 +5,6 @@ import axios from 'axios';
 const UseSinglePlayer = (playerId) => {
     const[playerInfo, setPlayerInfo] = useState({});
     const[teamInfo, setTeamInfo] = useState({});
-    const[lastPlayerSeason, setLastPlayerSeason] = useState(0);
     const[lastGameStats, setLastGameStats] = useState([]);
     const[lastSeasonAverage, setLastSeasonAverage] = useState({});
     const[errorMessage, setErrorMessage] = useState('');
@@ -35,7 +34,6 @@ const UseSinglePlayer = (playerId) => {
             if(response.data.data.length !== 0){
                 //get latest season this player played
                 const lastSeason = response.data.data[0].game.season;
-                setLastPlayerSeason(lastSeason);
                 //get season average during this season
                 const sznAvgResponse = await balldontlie.get('/season_averages',{
                     params: {

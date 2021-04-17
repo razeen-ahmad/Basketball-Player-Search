@@ -1,18 +1,14 @@
 import React from 'react';
 import { 
     Box, 
-    Circle, 
-    HStack, 
-    Heading, 
+    HStack,  
     Text, 
     Stat, 
-    StatLabel,
     StatNumber,
     StatHelpText,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import UseWindowDimensions from '../../hooks/UseWindowDimentions';
-import { BiHash } from "react-icons/bi";
 
 //each player card on 'leaderboard' page. pass in rank because have to account for same number of profile visits
 //between players. e.g. if two players have 5 "clicks" according to our MongoDB, then they should have the same rank

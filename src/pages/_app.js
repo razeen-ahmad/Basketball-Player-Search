@@ -22,6 +22,7 @@ const theme = extendTheme({
 
 
 export default function App({ Component, pageProps }) {
+    //loading page setup
     const [loading, setLoading] = React.useState(false);
     React.useEffect(() => {
         const start = () => {
@@ -39,6 +40,7 @@ export default function App({ Component, pageProps }) {
             Router.events.off("routeChangeError", end);
         };
     }, []);
+
     return (
         <>
             {loading ? (
