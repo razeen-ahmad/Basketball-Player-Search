@@ -31,7 +31,7 @@ export default function Home() {
                 You can search for any NBA player (1979-Present) in the 'Player Search' page and view each player's data by clicking
                 on their card. The number of visits to each player's individual page is counted and logged in a back-end
                 database, which is then ranked and displayed in the 'Leaderboard' page. This app was built using
-                MongoDB, Express.js, React.js, Next.js, and Chakra-UI. Take a look and let me know what you think!
+                MongoDB, Next.js, and Chakra-UI. Take a look and let me know what you think!
               </Text>
               <Link href="/player-search">
                 <a>
