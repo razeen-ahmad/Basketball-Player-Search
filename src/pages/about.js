@@ -29,7 +29,7 @@ const About = () => {
                                     learning more about one of my favorite past times: basketball. Although much of the data here is incomplete, 
                                     I had a great time learning more about NBA players and the data collected on them. If you want to see more of 
                                     my projects (like a basketball stat analysis with Python Pandas), feel free to
-                                    <Link href="https://www.razeenahmad.com"><a> check out my website→</a></Link>
+                                    <Link href="https://www.razeenahmad.com"><a style={{textDecoration: "underline"}}> check out my website→</a></Link>
                                 </Text>
                                 <VStack paddingX="0.5em">
                                     <Link href="https://www.razeenahmad.com"><a><CgLaptop size={35}/></a></Link>
