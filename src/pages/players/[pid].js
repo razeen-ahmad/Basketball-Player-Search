@@ -19,9 +19,9 @@ const Player = ({ params }) => {
     //UseSinglePlayer hook to get all available data from balldontlie api for this player
     const[playerInfo, teamInfo, lastGameStats, lastSeasonAverage, errorMessage] = UseSinglePlayer(pid);
     //boolean to check if this player has season average stats (meaning they will have a last game entry)
-    const hasStats = lastGameStats !== undefined; 
+    const hasStats = lastSeasonAverage !== undefined; 
     //boolean to check if this player individual game stats (if last game entry is not null)
-    const hasGame = (hasStats && lastGameStats.pts !== null);
+    const hasGame = lastGameStats !== null;
 
     //hook to update player clickcount in database, because we are loading this page. 
     //hook params depend on fetched data from previous hook

@@ -73,33 +73,33 @@ const GameCard = ({ gameStats }) => {
                                 <Tbody>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>Points:</Th>
-                                        <Td>{gameStats.pts}</Td>
+                                        <Td>{gameStats.pts ? gameStats.pts : 'N/A'}</Td>
                                     </Tr>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>Assists:</Th>
-                                        <Td>{gameStats.ast}</Td>
+                                        <Td>{gameStats.ast ? gameStats.ast : 'N/A'}</Td>
                                     </Tr>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>Rebounds:</Th>
-                                        <Td>{gameStats.reb}</Td>
+                                        <Td>{gameStats.reb ? gameStats.reb : 'N/A'}</Td>
                                     </Tr>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>Steals:</Th>
-                                        <Td>{gameStats.stl}</Td>
+                                        <Td>{gameStats.stl ? gameStats.stl : 'N/A'}</Td>
                                     </Tr>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>FG %:</Th>
                                         {/* handle data inconsistentcies in balldontlie api where 50% maybe entered as '0.50' or '50' */}
-                                        <Td>{fgPct > 100 ? gameStats.fg_pct : fgPct}% on {gameStats.fga} attempt(s)</Td>
+                                        <Td>{fgPct > 100 ? gameStats.fg_pct : fgPct}% on {gameStats.fga ? gameStats.fga : '0'} attempt(s)</Td>
                                     </Tr>
                                     <Tr borderBottom="2px" borderColor="brand.400">
                                         <Th>3 PT %:</Th>
                                         {/* handle data inconsistentcies in balldontlie api where 50% maybe entered as '0.50' or '50' */}
-                                        <Td>{threePtPct > 100 ? gameStats.fg3_pct : threePtPct}% on {gameStats.fg3a} attempt(s)</Td>
+                                        <Td>{threePtPct > 100 ? gameStats.fg3_pct : threePtPct}% on {gameStats.fg3a ? gameStats.fg3a : '0'} attempt(s)</Td>
                                     </Tr>
                                     <Tr>
                                         <Th>Turnovers:</Th>
-                                        <Td>{gameStats.turnover}</Td>
+                                        <Td>{gameStats.turnover ? gameStats.turnover : 'N/A'}</Td>
                                     </Tr>
                                 </Tbody>
                             </Table>
