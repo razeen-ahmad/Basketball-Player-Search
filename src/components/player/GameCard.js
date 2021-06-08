@@ -22,9 +22,18 @@ const GameCard = ({ gameStats }) => {
         return null;
     }
     else{
+        //gameStats.game.date returns the date of the first game of the season.
         //parse ISO-8601 date format to string
         var date = new Date(gameStats.game.date);
         var dateString = date.toDateString();
+        
+        //get season year in format: AAAA-AA e.g. 2015-16
+        var startSeasonYear = date.getFullYear();
+        var nextSeasonYear = ((startSeasonYear + 1) % 100).toString();
+        //if nextSeasonYear is in single digits
+        if(nextSeasonYear < 10){
+            nextSeasonYear = `0${nextSeasonYear}`;
+        }
 
         //get field goal and 3pt shot % to decomal point
         const fgPct = (Math.round(gameStats.fg_pct * 10000))/100;
@@ -35,7 +44,7 @@ const GameCard = ({ gameStats }) => {
 
         return(
             <>
-                <Text textAlign="center" fontSize="2xl" fontWeight="bold" paddingTop="3em">Latest Game Played</Text>
+                <Text textAlign="center" fontSize="2xl" fontWeight="bold" paddingTop="3em">First Game of {startSeasonYear} - {nextSeasonYear} Season Played</Text>
                 <Text textAlign="center" fontSize="sm" fontStyle="italic">(from available data)</Text>
                 <HStack justifyContent="center">
                     <Box fontSize="lg" borderBlock="2px" borderColor="brand.200" width="80%">
